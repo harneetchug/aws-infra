@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "artifact_bucket" {
   bucket = "harneet-artifact-bucket"
 }
 
-resource "aws_s3_bucket_notification" "trigger" {
+/*resource "aws_s3_bucket_notification" "trigger" {
   bucket = aws_s3_bucket.upload_bucket.id
 
   lambda_function {
@@ -33,4 +33,4 @@ resource "aws_iam_role" "lambda_role" {
 resource "aws_iam_role_policy_attachment" "basic_logs" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}
+}*/
