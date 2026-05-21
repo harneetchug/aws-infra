@@ -12,11 +12,3 @@
 
   timeout = 10
 }*/
-
-module "lambda" {
-  source = "../../modules/lambda"
-
-  function_name = "file-processor"
-  s3_bucket     = "harneet-artifact-bucket"
-  s3_key        = "lambdaapp/lambdaapp.jar"
-}

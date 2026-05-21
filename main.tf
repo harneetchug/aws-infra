@@ -4,7 +4,7 @@
 
 resource "aws_s3_bucket" "artifact_bucket" {
   bucket = "harneet-artifact-bucket"
-}*/
+}
 
 resource "aws_s3_bucket_notification" "trigger" {
   bucket = "harneet-upload-bucket"
@@ -13,7 +13,7 @@ resource "aws_s3_bucket_notification" "trigger" {
     lambda_function_arn = aws_lambda_function.file_processor.arn
     events              = ["s3:ObjectCreated:*"]
   }
-}
+}*/
 
 /*resource "aws_iam_role" "lambda_role" {
   name = "s3_lambda_role"

@@ -3,10 +3,14 @@ data "aws_s3_bucket" "upload_bucket" {
 }
 
 
-resource "aws_lambda_permission" "allow_s3" {
+/*resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowS3Invoke"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.file_processor.function_name
   principal     = "s3.amazonaws.com"
   source_arn    = data.aws_s3_bucket.upload_bucket.arn
+}*/
+
+data "aws_lambda_function" "file_processor" {
+  function_name = "file-processor"
 }
