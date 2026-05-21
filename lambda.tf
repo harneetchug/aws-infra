@@ -5,8 +5,9 @@ resource "aws_lambda_function" "file_processor" {
 
   role = aws_iam_role.lambda_role.arn
 
-  filename         = "lambdaapp.jar"
-  source_code_hash = filebase64sha256("lambdaapp/lambdaapp.jar")
+  s3_bucket = "harneet-artifact-bucket"
+  s3_key    = "lambdaapp/lambdaapp.jar"
+
 
   timeout = 10
 }
