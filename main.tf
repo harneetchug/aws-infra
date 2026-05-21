@@ -29,8 +29,13 @@ resource "aws_s3_bucket_notification" "trigger" {
     }]
   })
 }
-
-resource "aws_iam_role_policy_attachment" "basic_logs" {
+data "aws_iam_role_policy_attachment" "basic_logs" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}*/
+}
+
+ */
+data "aws_iam_role" "lambda_role" {
+  name = "s3_lambda_role"
+}
+
