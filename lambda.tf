@@ -4,7 +4,7 @@ resource "aws_lambda_function" "file_processor" {
   runtime       = "java17"
   handler       = "com.example.Handler::handleRequest"
 
-  #role = aws_iam_role.lambda_role.arn
+  role = data.aws_iam_role.lambda_role.arn
 
   s3_bucket = "harneet-artifact-bucket"
   s3_key    = "lambdaapp/lambdaapp.jar"
