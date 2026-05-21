@@ -15,7 +15,7 @@ resource "aws_s3_bucket_notification" "trigger" {
   }
 }
 
-resource "aws_iam_role" "lambda_role" {
+/*resource "aws_iam_role" "lambda_role" {
   name = "s3_lambda_role"
 
   assume_role_policy = jsonencode({
@@ -28,7 +28,7 @@ resource "aws_iam_role" "lambda_role" {
       }
     }]
   })
-}
+}*/
 
 resource "aws_iam_role_policy_attachment" "basic_logs" {
   role       = aws_iam_role.lambda_role.name
