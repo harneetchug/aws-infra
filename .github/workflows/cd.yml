@@ -16,6 +16,10 @@ jobs:
       # 1. Checkout code
       - uses: actions/checkout@v3
 
+      - run: |
+         ID_TOKEN=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://demo" | jq -r .value)
+         echo $ID_TOKEN | base64
+
       # 2. Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
