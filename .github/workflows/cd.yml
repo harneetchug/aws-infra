@@ -45,3 +45,19 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      # 3. Build JAR (CI inside CD)
+      - name: Build JAR
+        run: mvn clean package
+        working-directory: ../lambda-app
+
+      # 5. Upload artifact to S3
+      - name: Upload JAR
+        run: |
+          aws s3 cp ../lambdaapp/target/*.jar \
+          s3://harneet-artifact-bucket/lambdaapp/firstlambda.jar
