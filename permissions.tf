@@ -1,7 +1,12 @@
+data "aws_s3_bucket" "upload_bucket" {
+  bucket = "harneet-upload-bucket"
+}
+
+
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowS3Invoke"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.file_processor.function_name
   principal     = "s3.amazonaws.com"
-  source_arn    = "harneet-upload-bucket".arn
+  source_arn    = data.aws_s3_bucket.upload_bucket.arn
 }

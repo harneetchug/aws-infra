@@ -1,3 +1,4 @@
+
 resource "aws_lambda_function" "file_processor" {
   function_name = "file-processor"
   runtime       = "java17"
