@@ -1,13 +1,13 @@
-resource "aws_s3_bucket" "upload_bucket" {
+/*resource "aws_s3_bucket" "upload_bucket" {
   bucket = "harneet-upload-bucket"
 }
 
 resource "aws_s3_bucket" "artifact_bucket" {
   bucket = "harneet-artifact-bucket"
-}
+}*/
 
-/*resource "aws_s3_bucket_notification" "trigger" {
-  bucket = aws_s3_bucket.upload_bucket.id
+resource "aws_s3_bucket_notification" "trigger" {
+  bucket = "harneet-upload-bucket"
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.file_processor.arn
@@ -33,4 +33,4 @@ resource "aws_iam_role" "lambda_role" {
 resource "aws_iam_role_policy_attachment" "basic_logs" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}*/
+}

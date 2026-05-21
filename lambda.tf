@@ -1,4 +1,4 @@
-/*resource "aws_lambda_function" "file_processor" {
+resource "aws_lambda_function" "file_processor" {
   function_name = "file-processor"
   runtime       = "java17"
   handler       = "com.example.Handler::handleRequest"
@@ -9,4 +9,4 @@
   source_code_hash = filebase64sha256("lambdadeploy.jar")
 
   timeout = 10
-}*/
+}
