@@ -32,6 +32,15 @@ jobs:
           role-to-assume: arn:aws:iam::050922969172:role/github-action
           aws-region: eu-west-1
 
+      #Deploy Lamda
+      - name: Deploy updated JAR to lambda
+        run: |
+          aws lambda update-function-code \
+              --function-name file-processor \
+              --s3-bucket harneet-artifact-bucket \
+              --s3-key lambdaapp/${ARTIFACT_NAME}
+      
+
       # 6. Terraform deploy
       - name: Terraform Init
         run: terraform init
