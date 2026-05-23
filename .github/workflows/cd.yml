@@ -18,6 +18,9 @@ jobs:
       # 1. Checkout code
       - uses: actions/checkout@v3
 
+      - name: Set artifact name
+        run: echo "ARTIFACT_NAME=lambdaapp-1.0.0.jar" >> $GITHUB_ENV
+
       # 2. Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
