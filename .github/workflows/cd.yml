@@ -42,11 +42,11 @@ jobs:
       
 
       # 6. Terraform deploy
-      - name: Terraform Init
-        run: terraform init
+     # - name: Terraform Init
+     #   run: terraform init
 
-      - name: Terraform Apply
-        run: |
-          terraform apply \
-            -auto-approve \
-            -var="lambda_artifact=lambdaapp/${ARTIFACT_NAME}"
+     # - name: Terraform Apply
+      #  run: |
+       #   terraform apply \
+      #      -auto-approve \
+      #      -var="lambda_artifact=lambdaapp/${ARTIFACT_NAME}"
